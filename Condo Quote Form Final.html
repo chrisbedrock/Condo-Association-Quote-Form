@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NEW Condo Association Quote</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      color: #0066cc;
+      text-align: center;
+      border-bottom: 2px solid #0066cc;
+      padding-bottom: 10px;
+      margin-top: 0;
+    }
+    h2 {
+      color: #0066cc;
+      border-left: 4px solid #0066cc;
+      padding-left: 10px;
+      margin-top: 30px;
+    }
+    .form-section {
+      background-color: #f5f5f5;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin: 5px 0 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    input[type="checkbox"] {
+      margin-right: 10px;
+    }
+    button {
+      background-color: #0066cc;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #0055aa;
+    }
+    .building-group {
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    .success-message {
+      color: green;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>NEW Condo Association Quote</h1>
+
+  <form id="condoForm" action="https://formspree.io/f/xpwrvrye" method="POST">
+    <!-- Hidden Formspree Settings -->
+    <input type="hidden" name="_subject" value="New Condo Quote Submission" />
+    <input type="hidden" name="_next" value="#success" />
+    <input type="text" name="_gotcha" style="display:none" />
+
+    <div class="form-section">
+      <h2>Condo Association Information</h2>
+
+      <label for="associationName">Name of Condo Association:</label>
+      <input type="text" id="associationName" name="associationName" />
+
+      <label for="propertyAddress">Property Address for Condo Association:</label>
+      <input type="text" id="propertyAddress" name="propertyAddress" />
+
+      <label for="numBuildings">Number of Buildings:</label>
+      <input type="number" id="numBuildings" name="numBuildings" min="1" />
+
+      <label for="plannedBuildings">How many Buildings planned for Condo Development?</label>
+      <input type="number" id="plannedBuildings" name="plannedBuildings" min="0" />
+
+      <label for="completedBuildings">How many Buildings completed?</label>
+      <input type="number" id="completedBuildings" name="completedBuildings" min="0" />
+    </div>
+
+    <div class="form-section">
+      <h2>Building Details</h2>
+
+      <div class="building-group">
+        <h3>Building 1</h3>
+
+        <label for="buildingAddress1">Building Address or Building Number:</label>
+        <input type="text" id="buildingAddress1" name="buildingAddress1" />
+
+        <label for="buildingValue1">Approximate Value for Each Building:</label>
+        <input type="text" id="buildingValue1" name="buildingValue1" />
+
+        <label for="yearBuilt1">Year Built:</label>
+        <input type="text" id="yearBuilt1" name="yearBuilt1" />
+
+        <label for="exteriorBuild1">Exterior Build:</label>
+        <select id="exteriorBuild1" name="exteriorBuild1">
+          <option value="">Select...</option>
+          <option value="Brick">Brick</option>
+          <option value="Frame">Frame</option>
+          <option value="Stucco">Stucco</option>
+        </select>
+
+        <label for="roofType1">Roof Type:</label>
+        <select id="roofType1" name="roofType1">
+          <option value="">Select...</option>
+          <option value="Comp">Comp</option>
+          <option value="Tile">Tile</option>
+          <option value="Metal">Metal</option>
+        </select>
+
+        <label for="occupancyType1">Occupancy Type:</label>
+        <select id="occupancyType1" name="occupancyType1">
+          <option value="">Select...</option>
+          <option value="Professional">Professional</option>
+          <option value="Medical">Medical</option>
+          <option value="Retail">Retail</option>
+        </select>
+
+        <label for="squareFeet1">Square Feet for Building:</label>
+        <input type="number" id="squareFeet1" name="squareFeet1" />
+
+        <label for="units1">Number of Units in Building:</label>
+        <input type="number" id="units1" name="units1" />
+
+        <label for="sqftPerUnit1">Square feet per Unit:</label>
+        <input type="number" id="sqftPerUnit1" name="sqftPerUnit1" />
+
+        <label for="annualDues1">Annual Dues (approximately) collected from this building:</label>
+        <input type="text" id="annualDues1" name="annualDues1" />
+      </div>
+
+      <button type="button" onclick="addBuilding()" style="background-color: #666;">+ Add Another Building</button>
+    </div>
+
+    <div class="form-section">
+      <h2>Policy Information</h2>
+
+      <label for="effectiveDate">Effective Date Needed:</label>
+      <input type="date" id="effectiveDate" name="effectiveDate" />
+
+      <label>
+        <input type="checkbox" id="directorsCoverage" name="directorsCoverage" />
+        Do you want Directors & Officers Coverage with this?
+      </label>
+
+      <label>
+        <input type="checkbox" id="umbrellaCoverage" name="umbrellaCoverage" />
+        Do you want an Umbrella with this?
+      </label>
+    </div>
+
+    <div class="form-section">
+      <h2>Additional Information</h2>
+      <label for="comments">Special Requests or Notes:</label>
+      <textarea id="comments" name="comments" rows="4"></textarea>
+    </div>
+
+    <button type="submit">Submit Quote Request</button>
+  </form>
+
+  <div id="success" class="success-message" style="display:none;">
+    Thank you! Your submission has been received. We'll contact you shortly.
+  </div>
+
+  <script>
+    function addBuilding() {
+      const container = document.querySelector('.building-group:last-of-type');
+      const clone = container.cloneNode(true);
+      const buildingNumber = document.querySelectorAll('.building-group').length + 1;
+
+      clone.querySelector('h3').textContent = `Building ${buildingNumber}`;
+      const inputs = clone.querySelectorAll('input, select');
+      inputs.forEach(input => {
+        const oldId = input.id;
+        if (oldId) {
+          const newId = oldId.replace(/\d+$/, buildingNumber);
+          input.id = newId;
+          input.name = newId;
+          input.value = '';
+        }
+      });
+
+      container.parentNode.insertBefore(clone, container.nextSibling);
+    }
+
+    document.getElementById('condoForm').addEventListener('submit', function(e) {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('success')) {
+        document.getElementById('success').style.display = 'block';
+        window.scrollTo(0, 0);
+      }
+    });
+  </script>
+</body>
+</html>
